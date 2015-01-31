@@ -55,6 +55,6 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
   namespace :admin do
-    resoures :dashboard, only: :index
+    resources :dashboard, only: :index
   end
 end
