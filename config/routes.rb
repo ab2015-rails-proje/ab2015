@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   resources :lessons
   devise_for :users
   devise_for :teachers
@@ -63,6 +62,7 @@ Rails.application.routes.draw do
     root 'dashboard#index'
     resources :announcements
     resources :events
+    resources :teachers, only: :index
   end
 
   namespace :teacher do
