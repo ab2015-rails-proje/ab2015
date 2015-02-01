@@ -67,7 +67,11 @@ Rails.application.routes.draw do
     root 'dashboard#index'
     resources :announcements
     resources :events
-    resources :teachers, only: :index
+    resources :teachers, except: [:create, :new] do
+      post :block, on: :member
+      post :unblock, on: :member
+      post :block_all, on: :collection
+    end
   end
 
   namespace :teacher do

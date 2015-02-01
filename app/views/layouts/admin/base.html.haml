@@ -35,6 +35,8 @@
 
     .container.theme-showcase{:role => "main"}
       / Main jumbotron for a primary marketing message or call to action
+      - flash.each do |key, value|
+        = content_tag :div, value, class: "flash alert alert-#{key}"
       .well
         = render_breadcrumbs separator: ' / '
       = yield
