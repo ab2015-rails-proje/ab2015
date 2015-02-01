@@ -13,7 +13,7 @@
     - @lessons.each do |lesson|
       %tr
         %td= lesson.name
-        %td= lesson.event
+        %td= lesson.event.name
         %td= link_to 'Show', [:teacher, lesson]
         %td= link_to 'Edit', edit_teacher_lesson_path(lesson)
         %td= link_to 'Destroy', [:teacher, lesson], :method => :delete, :data => { :confirm => 'Are you sure?' }

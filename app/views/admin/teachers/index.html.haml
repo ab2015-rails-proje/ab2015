@@ -1,0 +1,23 @@
+.well
+  = search_form_for [:admin, @search] do |f|
+    %div
+      = f.label :name
+      = f.search_field :name_cont
+
+    %div
+      = f.label :email
+      = f.date_field :email
+    
+    = f.submit 'Ara', class: 'btn btn-default'
+
+
+%table.table
+  %thead
+    %tr
+      %th= sort_link(@search,:name)
+      %th= sort_link(@search,:email)
+      %th= sort_link(@search,:blocked, "blocked status")
+      %th
+  %tbody
+    = render @teacher
+
