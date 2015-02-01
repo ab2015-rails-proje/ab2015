@@ -1,9 +1,9 @@
-= form_for [:admin, @event], class: 'form-vertical' do |f|
-  - if @event.errors.any?
+= form_for [:admin, event], class: 'form-vertical', remote: true do |f|
+  - if event.errors.any?
     #error_explanation
-      %h2= "#{pluralize(@event.errors.count, "error")} prohibited this event from being saved:"
+      %h2= "#{pluralize(event.errors.count, "error")} prohibited this event from being saved:"
       %ul
-        - @event.errors.full_messages.each do |msg|
+        - event.errors.full_messages.each do |msg|
           %li= msg
 
   .field

@@ -24,7 +24,10 @@ class Admin::EventsController < Admin::BaseController
   def create
     @event = Event.new(event_params)
     @event.save
-    respond_with(:admin, @event)
+    #respond_with(:admin, @event)
+    respond_to do |format|
+      format.js
+    end
   end
 
   def update

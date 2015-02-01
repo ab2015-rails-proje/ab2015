@@ -1,0 +1,6 @@
+<% if @event.errors.any? %>
+    $('.modal-body').html("<%= escape_javascript(render partial: 'form', locals: {event: @event}) %>");
+<% else %>
+    $("<%= escape_javascript(render @event)%>").prependTo(".table tbody").effect('highlight', {}, 2000);
+    $('#myModal').hide();
+<% end %>

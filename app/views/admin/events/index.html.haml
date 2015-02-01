@@ -18,7 +18,7 @@
 
 .pull-right
   %div
-    = link_to 'Yeni Etkinlik Oluştur', new_admin_event_path, class: 'btn btn-success btn-lg'
+    = link_to 'Yeni Etkinlik Oluştur', '#', class: 'btn btn-success btn-lg', "data-target" => "#myModal", "data-toggle" => "modal"
   .clearfix
 
 %table.table
@@ -30,21 +30,24 @@
       %th
       
   %tbody
-    - @events.each do |event|
-      %tr
-        %td= event.name
-        %td= event.start_date
-        %td= event.end_date
-        %td
-          = link_to [:admin, event], class: 'btn btn-default btn-xs' do
-            %i.icon.glyphicon.glyphicon-eye-open
-          = link_to edit_admin_event_path(event), class: 'btn btn-default btn-xs' do
-            %i.icon.glyphicon.glyphicon-pencil
-          = link_to [:admin, event], :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-default btn-xs' do
-            %i.glyphicon.glyphicon-trash
+    = render @events
+
 
 %br
 
 %div
   = will_paginate @events, renderer: BootstrapPagination::Rails, bootstrap: 3
 
+/ Modal
+#myModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+          %span{"aria-hidden" => "true"} ×
+        %h4#myModalLabel.modal-title Modal title
+      .modal-body
+        = render partial: 'form', locals: {event: Event.new}
+      .modal-footer
+        %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
+        %button.btn.btn-primary{:type => "button"} Save changes

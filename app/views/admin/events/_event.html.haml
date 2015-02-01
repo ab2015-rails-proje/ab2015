@@ -1,0 +1,11 @@
+%tr
+  %td= event.name
+  %td= event.start_date
+  %td= event.end_date
+  %td
+    = link_to [:admin, event], class: 'btn btn-default btn-xs' do
+      %i.icon.glyphicon.glyphicon-eye-open
+    = link_to edit_admin_event_path(event), class: 'btn btn-default btn-xs' do
+      %i.icon.glyphicon.glyphicon-pencil
+    = link_to [:admin, event], :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-default btn-xs' do
+      %i.glyphicon.glyphicon-trash
