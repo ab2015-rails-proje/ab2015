@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20150201122616) do
+=======
+ActiveRecord::Schema.define(version: 20150201121602) do
+>>>>>>> e38341bc6a95a5f8eaf661f90a4982f27696a842
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -39,7 +43,12 @@ ActiveRecord::Schema.define(version: 20150201122616) do
     t.datetime "updated_at"
   end
 
+<<<<<<< HEAD
   create_table "users", force: true do |t|
+=======
+  create_table "teachers", force: true do |t|
+    t.string   "name",                                null: false
+>>>>>>> e38341bc6a95a5f8eaf661f90a4982f27696a842
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -52,10 +61,17 @@ ActiveRecord::Schema.define(version: 20150201122616) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+<<<<<<< HEAD
     t.string   "name"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+=======
+  end
+
+  add_index "teachers", ["email"], name: "index_teachers_on_email", unique: true
+  add_index "teachers", ["reset_password_token"], name: "index_teachers_on_reset_password_token", unique: true
+>>>>>>> e38341bc6a95a5f8eaf661f90a4982f27696a842
 
 end
