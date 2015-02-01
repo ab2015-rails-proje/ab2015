@@ -2,6 +2,7 @@ class Admin::EventsController < Admin::BaseController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   respond_to :html
+  add_breadcrumb "Etkinlikler", :admin_events_path
 
   def index
     @search = Event.ransack(params[:q])
@@ -10,6 +11,7 @@ class Admin::EventsController < Admin::BaseController
   end
 
   def show
+    add_breadcrumb @event.name, admin_event_path(@event)
     respond_with(:admin, @event)
   end
 

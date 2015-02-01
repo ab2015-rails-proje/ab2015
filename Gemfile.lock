@@ -35,6 +35,7 @@ GEM
     bootstrap-sass (3.3.3)
       autoprefixer-rails (>= 5.0.0.1)
       sass (>= 3.2.19)
+    breadcrumbs_on_rails (2.3.0)
     builder (3.2.2)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
@@ -164,6 +165,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootstrap-sass (~> 3.3.3)
+  breadcrumbs_on_rails
   coffee-rails (~> 4.0.0)
   devise (~> 3.4.1)
   haml
