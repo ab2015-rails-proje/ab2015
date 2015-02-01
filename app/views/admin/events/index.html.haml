@@ -24,4 +24,7 @@
 
 %br
 
-= link_to 'New Event', new_admin_event_path
+%div
+  = will_paginate @events, renderer: BootstrapPagination::Rails, bootstrap: 3
+%div
+  = link_to 'New Event', new_admin_event_path
