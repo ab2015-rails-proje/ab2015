@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-<<<<<<< HEAD
-
-
-
   resources :lessons
   devise_for :users
   devise_for :teachers
