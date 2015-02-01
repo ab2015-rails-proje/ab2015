@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
+
+
+
   resources :lessons
   devise_for :users
-
   devise_for :teachers
   devise_for :admins
   # The priority is based upon order of creation: first created -> highest priority.
@@ -64,7 +67,6 @@ Rails.application.routes.draw do
     resources :announcements
     resources :events
     resources :teachers, only: :index
-
   end
 
   namespace :teacher do
