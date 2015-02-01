@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :lessons
-
+  devise_for :users
   devise_for :teachers
   devise_for :admins
 
