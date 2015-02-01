@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @announcement.title
+%p
+  %b Content:
+  = @announcement.content
+
+= link_to 'Edit', edit_admin_announcement_path(@announcement)
+\|
+= link_to 'Back', admin_announcements_path
