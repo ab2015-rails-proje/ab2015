@@ -1,15 +1,32 @@
-%h1 Listing events
+%h1 Etkinlik Listesi
 
-= I18n.l Time.now
+.well
+  = search_form_for [:admin, @search] do |f|
+    %div
+      = f.label :name
+      = f.search_field :name_cont
+
+    %div
+      = f.label :start_date
+      = f.date_field :start_date_gt
+
+    %div
+      = f.label :start_date
+      = f.date_field :end_date_lt
+
+    = f.submit 'Ara', class: 'btn btn-default'
+
+.pull-right
+  %div
+    = link_to 'Yeni Etkinlik Oluştur', new_admin_event_path, class: 'btn btn-success btn-lg'
+  .clearfix
 
 %table.table
   %thead
     %tr
-      %th Name
-      %th Start date
-      %th End date
-      %th
-      %th
+      %th= sort_link(@search, :name, 'İsim')
+      %th= sort_link(@search, :start_date, 'Başlangıç Tarihi')
+      %th= sort_link(@search, :end_date, 'Bitiş Tarihi')
       %th
       
   %tbody
@@ -18,13 +35,16 @@
         %td= event.name
         %td= event.start_date
         %td= event.end_date
-        %td= link_to 'Show', [:admin, event]
-        %td= link_to 'Edit', edit_admin_event_path(event)
-        %td= link_to 'Destroy', [:admin, event], :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %td
+          = link_to [:admin, event], class: 'btn btn-default btn-xs' do
+            %i.icon.glyphicon.glyphicon-eye-open
+          = link_to edit_admin_event_path(event), class: 'btn btn-default btn-xs' do
+            %i.icon.glyphicon.glyphicon-pencil
+          = link_to [:admin, event], :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-default btn-xs' do
+            %i.glyphicon.glyphicon-trash
 
 %br
 
 %div
   = will_paginate @events, renderer: BootstrapPagination::Rails, bootstrap: 3
-%div
-  = link_to 'New Event', new_admin_event_path
+

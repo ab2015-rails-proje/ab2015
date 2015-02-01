@@ -4,7 +4,8 @@ class Admin::EventsController < Admin::BaseController
   respond_to :html
 
   def index
-    @events = Event.paginate(page: params[:page], per_page: 2)
+    @search = Event.ransack(params[:q])
+    @events = @search.result.paginate(page: params[:page])
     respond_with(:admin, @events)
   end
 
