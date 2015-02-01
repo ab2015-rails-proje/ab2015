@@ -1,0 +1,15 @@
+%h1 Listing announcements
+
+%table.table
+  %thead
+    %tr
+      %th Title
+      %th Content
+
+      
+  %tbody
+    = render @announcements
+
+    %br
+
+= link_to 'New Announcement', new_admin_announcement_path

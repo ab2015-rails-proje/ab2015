@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
+
+
+
+=======
   resources :lessons
   devise_for :users
+>>>>>>> 2bb8ee360ec8cae3b9b57acc1955794ffce4b2f5
   devise_for :teachers
   devise_for :admins
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -61,6 +66,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :dashboard, only: :index
     root 'dashboard#index'
+    resources :announcements
     resources :events
   end
 
