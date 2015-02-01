@@ -6,10 +6,12 @@
 
     %div
       = f.label :email
-      = f.date_field :email
+      = f.search_field :email_cont
     
     = f.submit 'Ara', class: 'btn btn-default'
 
+
+= link_to 'Tümünü Blokla', block_all_admin_teachers_path, class: 'btn btn-danger', method: :post
 
 %table.table
   %thead
