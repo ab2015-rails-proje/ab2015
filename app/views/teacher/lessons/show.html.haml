@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @lesson.name
+%p
+  %b Event:
+  = @lesson.event
+
+= link_to 'Edit', edit_teacher_lesson_path(@lesson)
+\|
+= link_to 'Back', teacher_lessons_path

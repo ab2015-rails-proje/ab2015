@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20150201123710) do
+=======
+ActiveRecord::Schema.define(version: 20150201124937) do
+>>>>>>> 2bb8ee360ec8cae3b9b57acc1955794ffce4b2f5
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -44,7 +48,28 @@ ActiveRecord::Schema.define(version: 20150201123710) do
     t.date     "end_date"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "admin_id"
   end
+
+  add_index "events", ["admin_id"], name: "index_events_on_admin_id"
+
+  create_table "lessons", force: true do |t|
+    t.string   "name"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.integer  "event_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "lessons", ["event_id"], name: "index_lessons_on_event_id"
+
+  create_table "lessons_teachers", id: false, force: true do |t|
+    t.integer "lesson_id"
+    t.integer "teacher_id"
+  end
+
+  add_index "lessons_teachers", ["lesson_id", "teacher_id"], name: "index_lessons_teachers_on_lesson_id_and_teacher_id", unique: true
 
   create_table "teachers", force: true do |t|
     t.string   "name",                                null: false
@@ -64,5 +89,24 @@ ActiveRecord::Schema.define(version: 20150201123710) do
 
   add_index "teachers", ["email"], name: "index_teachers_on_email", unique: true
   add_index "teachers", ["reset_password_token"], name: "index_teachers_on_reset_password_token", unique: true
+
+  create_table "users", force: true do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "name"
+  end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
 end
