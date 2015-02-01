@@ -12,5 +12,8 @@
   .field
     = f.label :event
     = f.select :event_id, Event.all.map{|e| [e.name, e.id]}
+  .field
+    = f.label :description
+    = f.text_area :description, class: 'wysihtml5'
   .actions
     = f.submit 'Save'
