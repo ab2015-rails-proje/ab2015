@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20150201123710) do
-=======
-ActiveRecord::Schema.define(version: 20150201124937) do
->>>>>>> 2bb8ee360ec8cae3b9b57acc1955794ffce4b2f5
+ActiveRecord::Schema.define(version: 20150201135053) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -55,8 +51,6 @@ ActiveRecord::Schema.define(version: 20150201124937) do
 
   create_table "lessons", force: true do |t|
     t.string   "name"
-    t.date     "start_date"
-    t.date     "end_date"
     t.integer  "event_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -85,6 +79,7 @@ ActiveRecord::Schema.define(version: 20150201124937) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "blocked"
   end
 
   add_index "teachers", ["email"], name: "index_teachers_on_email", unique: true
