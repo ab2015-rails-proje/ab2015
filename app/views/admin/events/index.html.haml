@@ -1,0 +1,27 @@
+%h1 Listing events
+
+= I18n.l Time.now
+
+%table.table
+  %thead
+    %tr
+      %th Name
+      %th Start date
+      %th End date
+      %th
+      %th
+      %th
+      
+  %tbody
+    - @events.each do |event|
+      %tr
+        %td= event.name
+        %td= event.start_date
+        %td= event.end_date
+        %td= link_to 'Show', [:admin, event]
+        %td= link_to 'Edit', edit_admin_event_path(event)
+        %td= link_to 'Destroy', [:admin, event], :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Event', new_admin_event_path

@@ -57,5 +57,7 @@ Rails.application.routes.draw do
   #   end
   namespace :admin do
     resources :dashboard, only: :index
+    root 'dashboard#index'
+    resources :events
   end
 end
