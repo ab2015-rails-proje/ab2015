@@ -50,3 +50,4 @@ gem 'will_paginate-bootstrap'
 gem 'ransack'
 gem 'jquery-ui-rails'
 gem "breadcrumbs_on_rails"
+gem 'katip'
