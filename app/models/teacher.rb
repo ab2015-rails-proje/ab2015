@@ -5,4 +5,5 @@ class Teacher < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   validates :name, presence: true 
   validates :email, presence: true
+  has_and_belongs_to_many :lessons
 end
