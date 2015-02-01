@@ -5,35 +5,35 @@ class Teacher::LessonsController < Teacher::BaseController
 
   def index
     @lessons = Lesson.all
-    respond_with(@lessons)
+    respond_with(:teacher, @lessons)
   end
 
   def show
-    respond_with(@lesson)
+    respond_with(:teacher, @lesson)
   end
 
   def new
     @lesson = Lesson.new
-    respond_with(@lesson)
+    respond_with(:teacher, @lesson)
   end
 
   def edit
   end
 
   def create
-    @lesson = Lesson.new(lesson_params)
+    @lesson = current_teacher.lessons.new(lesson_params)
     @lesson.save
-    respond_with(@lesson)
+    respond_with(:teacher, @lesson)
   end
 
   def update
     @lesson.update(lesson_params)
-    respond_with(@lesson)
+    respond_with(:teacher, @lesson)
   end
 
   def destroy
     @lesson.destroy
-    respond_with(@lesson)
+    respond_with(:teacher, @lesson)
   end
 
   private
@@ -42,6 +42,6 @@ class Teacher::LessonsController < Teacher::BaseController
     end
 
     def lesson_params
-      params.require(:lesson).permit(:name, :start_date, :end_date, :event_id)
+      params.require(:lesson).permit(:name, :event_id)
     end
 end
