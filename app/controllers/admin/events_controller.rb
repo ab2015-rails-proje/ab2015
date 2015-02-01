@@ -5,7 +5,7 @@ class Admin::EventsController < Admin::BaseController
   add_breadcrumb "Etkinlikler", :admin_events_path
 
   def index
-    @search = Event.ransack(params[:q])
+    @search = Event.includes(:admin).ransack(params[:q])
     @events = @search.result.paginate(page: params[:page])
     respond_with(:admin, @events)
   end
@@ -24,7 +24,7 @@ class Admin::EventsController < Admin::BaseController
   end
 
   def create
-    @event = Event.new(event_params)
+    @event = current_admin.events.new(event_params)
     @event.save
     #respond_with(:admin, @event)
     respond_to do |format|
