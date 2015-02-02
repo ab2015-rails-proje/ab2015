@@ -23,8 +23,9 @@ class Teacher::LessonsController < Teacher::BaseController
   end
 
   def create
-    @lesson = current_teacher.lessons.new(lesson_params)
+    @lesson = Lesson.new(lesson_params)
     @lesson.save
+    @lesson.teachers << current_teacher
     respond_with(:teacher, @lesson)
   end
 
@@ -44,6 +45,6 @@ class Teacher::LessonsController < Teacher::BaseController
     end
 
     def lesson_params
-      params.require(:lesson).permit(:name, :event_id)
+      params.require(:lesson).permit(:name, :event_id,:description)
     end
 end

@@ -10,7 +10,7 @@
 
 %h2 İlgili Dersler
 
-%table.table
+%table.table.table-bordered
   %thead
     %tr
       %th Adı
@@ -18,5 +18,5 @@
   %tbody
   - @lessons.each do |lesson|
     %tr
-      %td= lesson.name
-      %td= lesson.teachers.count
+      %td= link_to lesson.name, lesson
+      %td= lesson.teachers.map(&:name).join(',')
