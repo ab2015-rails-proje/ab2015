@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  resources :announcements, only: [:index, :show]
+
   resources :lessons
   devise_for :users
   devise_for :teachers

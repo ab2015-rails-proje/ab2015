@@ -16,15 +16,15 @@ class AnnouncementsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should create announcement" do
+  test "should create announcements" do
     assert_difference('Announcement.count') do
-      post :create, announcement: { content: @announcement.content, title: @announcement.title }
+      post :create, announcements: { content: @announcement.content, title: @announcement.title }
     end
 
-    assert_redirected_to announcement_path(assigns(:announcement))
+    assert_redirected_to announcement_path(assigns(:announcements))
   end
 
-  test "should show announcement" do
+  test "should show announcements" do
     get :show, id: @announcement
     assert_response :success
   end
@@ -34,12 +34,12 @@ class AnnouncementsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should update announcement" do
-    patch :update, id: @announcement, announcement: { content: @announcement.content, title: @announcement.title }
-    assert_redirected_to announcement_path(assigns(:announcement))
+  test "should update announcements" do
+    patch :update, id: @announcement, announcements: { content: @announcement.content, title: @announcement.title }
+    assert_redirected_to announcement_path(assigns(:announcements))
   end
 
-  test "should destroy announcement" do
+  test "should destroy announcements" do
     assert_difference('Announcement.count', -1) do
       delete :destroy, id: @announcement
     end

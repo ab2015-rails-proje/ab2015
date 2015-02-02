@@ -1,0 +1,13 @@
+%table.table
+  %thead
+    %tr
+      %th Title
+      %th Content
+  %tbody
+  - @announcements.each do |announcement|
+    %tr
+      %td= announcement.title
+
+      %td= announcement.content
+      %td=link_to 'detay', announcement, class:'btn btn-default'
+      %br
