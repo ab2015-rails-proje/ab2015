@@ -5,10 +5,13 @@ class Admin::TeachersController < Admin::BaseController
 	def index
 		@search = Teacher.ransack(params[:q])
     @teacher = @search.result.paginate(page: params[:page])
+<<<<<<< HEAD
   end
 
   def show 
      add_breadcrumb @teacher.name , admin_teacher_path(@teacher)
+=======
+>>>>>>> feature/admin_userları_yönetir
   end
 
   def block_all

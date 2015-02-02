@@ -1,7 +1,15 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
 
   resources :announcements, only: [:index, :show]
 
+=======
+#<<<<<<< HEAD
+
+  resources :announcements, only: [:index, :show]
+#=======
+#>>>>>>> de5e2ada98da12590ffd8dc214a6eee08b2cdc24
+>>>>>>> feature/admin_userları_yönetir
   resources :lessons
   devise_for :users
   devise_for :teachers
@@ -66,6 +74,11 @@ Rails.application.routes.draw do
     resources :announcements
     resources :events
     resources :teachers, except: [:create, :new] do
+      post :block, on: :member
+      post :unblock, on: :member
+      post :block_all, on: :collection
+    end
+    resources :users, except: [:create, :new] do
       post :block, on: :member
       post :unblock, on: :member
       post :block_all, on: :collection
