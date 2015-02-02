@@ -14,8 +14,9 @@
   %thead
     %tr
       %th Adı
+      %th Öğretmenler
   %tbody
   - @lessons.each do |lesson|
     %tr
       %td= lesson.name
-      %br
+      %td= lesson.teachers.count
