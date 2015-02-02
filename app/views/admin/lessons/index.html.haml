@@ -1,0 +1,23 @@
+.well
+  = search_form_for [:admin, @search] do |f|
+    %div
+      = f.label :Isim
+      = f.search_field :name_cont
+  
+    
+    = f.submit 'Ara', class: 'btn btn-default'
+
+
+.pull-right
+  %div
+    = link_to 'Yeni Ders Oluştur', new_admin_lesson_path, class: 'btn btn-success btn-lg'
+
+%table.table
+  %thead
+    %tr
+      %th= sort_link(@search,:name)
+      %th
+  %tbody
+    = render @lesson
+
+

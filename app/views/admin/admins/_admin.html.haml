@@ -1,0 +1,9 @@
+%tr
+ %td= admin.email
+ %td= admin.blocked 
+ %td
+  =link_to admin_admins_path , class: 'btn btn-default btn-xs' do
+   %i.icon.glyphicon.glyphicon-eye-open
+
+  = link_to 'Blokla', block_admin_admin_path(admin), class: "btn btn-danger btn-xs #{admin.blocked ? 'disabled' : ''}", method: :post
+  = link_to 'Aktif Et', unblock_admin_admin_path(admin), class: "btn btn-success btn-xs #{admin.blocked ? '' : 'disabled'}", method: :post

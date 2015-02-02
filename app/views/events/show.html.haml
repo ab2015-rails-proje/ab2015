@@ -1,0 +1,22 @@
+%p
+  %b Adı:
+  = @event.name
+%p
+  %b Başlangıç Tarihi:
+  = @event.start_date
+%p
+  %b Bitiş Tarihi:
+  = @event.end_date
+
+%h2 İlgili Dersler
+
+%table.table
+  %thead
+    %tr
+      %th Adı
+      %th Öğretmenler
+  %tbody
+  - @lessons.each do |lesson|
+    %tr
+      %td= lesson.name
+      %td= lesson.teachers.count
