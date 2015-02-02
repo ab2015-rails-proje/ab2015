@@ -23,8 +23,9 @@ class Teacher::LessonsController < Teacher::BaseController
   end
 
   def create
-    @lesson = current_teacher.lessons.new(lesson_params)
+    @lesson = Lesson.new(lesson_params)
     @lesson.save
+    @lesson.teachers << current_teacher
     respond_with(:teacher, @lesson)
   end
 

@@ -30,21 +30,6 @@
               = link_to 'Duyurular',announcements_path
 
     .container.theme-showcase{:role => "main"}
-      / Main jumbotron for a primary marketing message or call to action
-      = yield
-
-      %footer
-        %hr/
-        = link_to 'Yönetici Girişi', new_admin_session_path, class: 'btn btn-primary btn-xs'
-        = link_to 'Eğitmen Girişi', new_teacher_session_path, class: 'btn btn-primary btn-xs'
-          %li.active
-            %a{:href => '#'} Home
-          %li
-            %a{:href => '#about'} About
-          %li
-            = link_to 'Duyurular',announcements_path
-
-    .container.theme-showcase{:role => 'main'}
       %ol.breadcrumb
         = render_breadcrumbs :separator => " / "
       = yield
