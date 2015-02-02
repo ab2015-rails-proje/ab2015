@@ -1,3 +1,5 @@
+
+
 = form_for [:admin, @announcement] do |f|
   - if @announcement.errors.any?
     #error_explanation
@@ -11,6 +13,8 @@
     = f.text_field :title,class: 'form-control'
   .field
     = f.label :content
-    = f.text_area :content,class: 'form-control'
+    = f.text_area :content, class: 'wysihtml5'
+
   .actions
-    = f.submit 'Save', class:'btn btn-default'
+    = f.submit 'Kaydet', class:'btn btn-default'
+

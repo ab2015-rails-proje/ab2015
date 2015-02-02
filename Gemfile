@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'haml'
 gem 'haml-rails'
+gem 'bootstrap-wysihtml5-rails','~> 0.3.3.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.9'
