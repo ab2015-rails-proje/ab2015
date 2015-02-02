@@ -18,9 +18,11 @@ class Admin::EventsController < Admin::BaseController
   def new
     @event = Event.new(name: 'TEstsetestes')
     respond_with(:admin, @event)
+    add_breadcrumb "Yeni Etkinlik", :new_admin_events_path
   end
 
   def edit
+    add_breadcrumb "Düzeltme", :edit_admin_events_path
   end
 
   def create

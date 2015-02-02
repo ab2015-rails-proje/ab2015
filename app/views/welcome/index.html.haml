@@ -1,5 +1,20 @@
 %h1 Hoşgeldiniz.
 
-%btn.btn.btn-default
+
+%table.table
+  %thead
+    %tr
+      %th Adı
+      %th Başlangıç Tarihi
+      %th Bitiş Tarihi
+      %th 
+  %tbody
+  - @events.each do |event|
+    %tr
+      %td= event.name
+      %td= event.start_date
+      %td= event.end_date
+      %td= link_to "Detay", event
+      %br
 
 = link_to 'Yönetici Girişi', new_admin_session_path, class: 'btn btn-primary btn-lg'

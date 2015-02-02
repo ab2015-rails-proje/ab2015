@@ -1,0 +1,29 @@
+%p= current_admin.email
+
+Userlar
+
+.well
+  = search_form_for [:admin, @search] do |f|
+
+    %div
+      = f.label :email
+      = f.search_field :email_cont
+    
+    = f.submit 'Ara', class: 'btn btn-default'
+
+
+= link_to 'Tümünü Blokla', block_all_admin_users_path, class: 'btn btn-danger', method: :post
+
+%table.table
+  %thead
+    %tr
+      %th= sort_link(@search,:email)
+      %th= sort_link(@search,:blocked, "blocked status")
+      %th
+  %tbody
+    = render @admins
+
+%br
+
+%div
+  = will_paginate @admins, renderer: BootstrapPagination::Rails, bootstrap: 3
