@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
 
   resources :announcements, only: [:index, :show]
+  resources :events, only: [:index, :show]
 
   resources :lessons
   devise_for :users
