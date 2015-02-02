@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
 
   resources :announcements, only: [:index, :show]
+  resources :events, only: [:index, :show]
 
   resources :lessons
   devise_for :users
@@ -66,6 +67,7 @@ Rails.application.routes.draw do
     root 'dashboard#index'
     resources :announcements
     resources :events
+    resources :lessons
     resources :teachers, except: [:create, :new] do
       post :block, on: :member
       post :unblock, on: :member
