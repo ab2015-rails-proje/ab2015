@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
 
 
+  get 'lessons/show'
+
+  resource :memberships, only: [:create]
+
   resources :announcements, only: [:index, :show]
   resources :events, only: [:index, :show]
-
-  resources :lessons
+  resources :lessons, only: [:show]
   devise_for :users
   devise_for :teachers
   devise_for :admins

@@ -1,0 +1,9 @@
+%h1= @lesson.name 
+
+= @lesson.description
+
+-if current_user.lessons.map(&:id).include? @lesson.id
+  %p Zaten bu derse kayıtlısınız
+-else
+  = link_to 'Başvur', memberships_path(lesson_id: @lesson.id), method: :post
+

@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20150202131905) do
+=======
+ActiveRecord::Schema.define(version: 20150202131619) do
+>>>>>>> 1b3de687beca764832c6dd893af6d29b7de96f88
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -52,6 +56,8 @@ ActiveRecord::Schema.define(version: 20150202131905) do
 
   create_table "lessons", force: true do |t|
     t.string   "name"
+    t.date     "start_date"
+    t.date     "end_date"
     t.integer  "event_id"
     t.datetime "created_at"
     t.datetime "updated_at"
