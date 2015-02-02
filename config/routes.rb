@@ -86,6 +86,7 @@ Rails.application.routes.draw do
 
   namespace :teacher do
     resources :lessons
-    root 'lessons#index'
+    resources :dashboard, only: :index
+    root 'dashboard#index'
   end
 end
