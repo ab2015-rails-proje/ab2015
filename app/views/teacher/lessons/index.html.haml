@@ -1,15 +1,14 @@
-%h1 Listing lessons
+%h1 Ders Listesi
 
 %table.table
   %thead
     %tr
       %th Ders Adı
       %th Etkinlik
-      %th Açıklama
 
       
   %tbody
     = render @lessons
 %br
 
-= link_to 'New Lesson', new_teacher_lesson_path
+= link_to 'Yeni Ders', new_teacher_lesson_path
