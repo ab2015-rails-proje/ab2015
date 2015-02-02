@@ -1,7 +1,7 @@
 class Admin::TeachersController < Admin::BaseController
 	def index
 		@search = Teacher.ransack(params[:q])
-    	@teacher = @search.result.paginate(page: params[:page])
+    @teacher = @search.result.paginate(page: params[:page])
   end
 
   def block_all
