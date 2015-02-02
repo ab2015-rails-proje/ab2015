@@ -1,0 +1,11 @@
+%p
+  %b Isim:
+  = @lesson.name
+%p
+  %b Aciklama:
+  = @lesson.description
+
+
+= link_to 'Edit', edit_admin_lesson_path(@lesson)
+\|
+= link_to 'Back', admin_lessons_path
