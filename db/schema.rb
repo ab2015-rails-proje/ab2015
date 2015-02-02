@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
+ActiveRecord::Schema.define(version: 20150202131619) do
+=======
 ActiveRecord::Schema.define(version: 20150202095213) do
+>>>>>>> 52a5366b8eb444eaa35905004479c68710e9952d
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -26,6 +30,7 @@ ActiveRecord::Schema.define(version: 20150202095213) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "blocked"
   end
 
   add_index "admins", ["email"], name: "index_admins_on_email", unique: true
