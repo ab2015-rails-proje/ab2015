@@ -3,4 +3,6 @@ class Lesson < ActiveRecord::Base
   has_and_belongs_to_many :teachers
   has_many :memberships
   has_many :users, through: :memberships
+
+  validates_presence_of :name, :description
 end

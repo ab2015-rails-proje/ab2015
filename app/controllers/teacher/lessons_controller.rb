@@ -45,6 +45,6 @@ class Teacher::LessonsController < Teacher::BaseController
     end
 
     def lesson_params
-      params.require(:lesson).permit(:name, :event_id)
+      params.require(:lesson).permit(:name, :event_id,:description)
     end
 end
