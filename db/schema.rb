@@ -15,6 +15,7 @@
 ActiveRecord::Schema.define(version: 20150201141209) do
 
 
+
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
