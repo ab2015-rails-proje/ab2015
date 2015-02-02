@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-
+<<<<<<< HEAD
 
   resources :announcements, only: [:index, :show]
-
+=======
+>>>>>>> de5e2ada98da12590ffd8dc214a6eee08b2cdc24
   resources :lessons
   devise_for :users
   devise_for :teachers

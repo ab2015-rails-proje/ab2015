@@ -3,8 +3,9 @@
  %td= teacher.email
  %td= teacher.blocked 
  %td
-  =link_to admin_teachers_path , class: 'btn btn-default btn-xs' do
-   %i.icon.glyphicon.glyphicon-eye-open
 
+
+  =link_to 'Detay',admin_teacher_path(teacher) , class: 'btn btn-info btn-xs', method: :get
+  
   = link_to 'Blokla', block_admin_teacher_path(teacher), class: "btn btn-danger btn-xs #{teacher.blocked ? 'disabled' : ''}", method: :post
   = link_to 'Aktif Et', unblock_admin_teacher_path(teacher), class: "btn btn-success btn-xs #{teacher.blocked ? '' : 'disabled'}", method: :post
