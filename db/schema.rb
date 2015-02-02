@@ -51,6 +51,8 @@ ActiveRecord::Schema.define(version: 20150202095213) do
 
   create_table "lessons", force: true do |t|
     t.string   "name"
+    t.date     "start_date"
+    t.date     "end_date"
     t.integer  "event_id"
     t.datetime "created_at"
     t.datetime "updated_at"
