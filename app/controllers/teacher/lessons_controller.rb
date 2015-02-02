@@ -1,6 +1,6 @@
 class Teacher::LessonsController < Teacher::BaseController
   before_action :set_lesson, only: [:show, :edit, :update, :destroy]
-
+  add_breadcrumb "Dersler", :teacher_lessons_path
   respond_to :html
 
   def index
@@ -9,12 +9,14 @@ class Teacher::LessonsController < Teacher::BaseController
   end
 
   def show
+    add_breadcrumb @lesson.name, teacher_lesson_path(@lesson)
     respond_with(:teacher, @lesson)
   end
 
   def new
     @lesson = Lesson.new
     respond_with(:teacher, @lesson)
+    add_breadcrumb "Yeni Ders", :new_teacher_lesson_path
   end
 
   def edit
