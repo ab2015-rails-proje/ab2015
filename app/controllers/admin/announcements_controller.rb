@@ -4,7 +4,7 @@ class Admin::AnnouncementsController < Admin::BaseController
   respond_to :html
 
   def index
-    @announcements = Announcement.all
+    @announcements = Announcement.all.order('id desc')
     respond_with(:admin, @announcements)
   end
 

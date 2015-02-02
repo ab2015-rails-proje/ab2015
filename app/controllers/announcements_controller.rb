@@ -1,6 +1,6 @@
 class AnnouncementsController < ApplicationController
   def index
-    @announcements=Announcement.all
+    @announcements=Announcement.all.order('id desc').limit(10)
   end
 
   def show
