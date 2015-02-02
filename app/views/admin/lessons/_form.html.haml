@@ -1,0 +1,10 @@
+= form_for  [:admin, @lesson], class: 'form-vertical' do |f|
+  .field
+    = f.label :Isim
+    = f.text_field :name,class: 'form-control'
+  .field
+    = f.label :Acıklama
+    = f.text_area :description , class: 'wysihtml5'
+
+  .actions
+    = f.submit 'Save'
