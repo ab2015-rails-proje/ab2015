@@ -1,7 +1,14 @@
 class Admin::TeachersController < Admin::BaseController
+  before_action :set_teacher, only: [:show]
+  add_breadcrumb "Teacher", :admin_teachers_path
+
 	def index
 		@search = Teacher.ransack(params[:q])
-    	@teacher = @search.result.paginate(page: params[:page])
+    @teacher = @search.result.paginate(page: params[:page])
+  end
+
+  def show 
+     add_breadcrumb @teacher.name , admin_teacher_path(@teacher)
   end
 
   def block_all
@@ -31,4 +38,10 @@ class Admin::TeachersController < Admin::BaseController
     end
     redirect_to :back
   end
+
+private
+    def set_teacher
+      @teacher = Teacher.find(params[:id])
+    end
+
 end
