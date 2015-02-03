@@ -4,7 +4,7 @@ class Teacher::LessonsController < Teacher::BaseController
   respond_to :html
 
   def index
-    @lessons = Lesson.all
+    @lessons = current_teacher.lessons
     respond_with(:teacher, @lessons)
   end
 
@@ -15,8 +15,8 @@ class Teacher::LessonsController < Teacher::BaseController
 
   def new
     @lesson = Lesson.new
-    respond_with(:teacher, @lesson)
     add_breadcrumb "Yeni Ders", :new_teacher_lesson_path
+    respond_with(:teacher, @lesson)
   end
 
   def edit
@@ -41,7 +41,7 @@ class Teacher::LessonsController < Teacher::BaseController
 
   private
     def set_lesson
-      @lesson = Lesson.find(params[:id])
+      @lesson = current_teacher.lessons.find(params[:id])
     end
 
     def lesson_params
