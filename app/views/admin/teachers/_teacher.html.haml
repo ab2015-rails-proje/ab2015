@@ -5,7 +5,10 @@
  %td
 
 
-  =link_to 'Detay',admin_teacher_path(teacher) , class: 'btn btn-info btn-xs', method: :get
+  =link_to admin_teacher_path(teacher) ,class: "btn btn-info btn-xs", method: :get do  
+   %i.icon.glyphicon.glyphicon-eye-open
   
-  = link_to 'Blokla', block_admin_teacher_path(teacher), class: "btn btn-danger btn-xs #{teacher.blocked ? 'disabled' : ''}", method: :post
-  = link_to 'Aktif Et', unblock_admin_teacher_path(teacher), class: "btn btn-success btn-xs #{teacher.blocked ? '' : 'disabled'}", method: :post
+  = link_to block_admin_teacher_path(teacher), class: "btn btn-danger btn-xs #{teacher.blocked ? 'disabled' : ''}", method: :post do
+   %i.icon.glyphicon.glyphicon-remove
+  = link_to  unblock_admin_teacher_path(teacher), class: "btn btn-success btn-xs #{teacher.blocked ? '' : 'disabled'}", method: :post do
+   %i.icon.glyphicon.glyphicon-ok
