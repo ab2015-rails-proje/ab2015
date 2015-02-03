@@ -1,7 +1,7 @@
 %p#notice= notice
 
-%p
-  %b Name:
+%h1
+  %b İsim:
   = @event.name
 %p
   %b Başlangıç Tarihi:
@@ -10,6 +10,19 @@
   %b Bitiş Tarihi:
   = @event.end_date
 
-= link_to 'Edit', edit_admin_event_path(@event)
+= link_to 'Düzenle', edit_admin_event_path(@event)
 \|
-= link_to 'Back', admin_events_path
+= link_to 'Geri', admin_events_path
+
+%h2 Dersler
+
+%table.table.table-bordered
+  %thead
+    %tr
+      %th Adı
+      %th Öğretmenler
+  %tbody
+  - @event.lessons.each do |lesson|
+    %tr
+      %td= link_to lesson.name, lesson
+      %td= lesson.teachers.map(&:name).join(',')

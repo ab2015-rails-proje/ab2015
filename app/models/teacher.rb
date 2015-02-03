@@ -11,6 +11,6 @@ class Teacher < ActiveRecord::Base
   has_and_belongs_to_many :lessons, dependent: :destroy
 
   def active_for_authentication?
-    true
+    super && !self.blocked 
   end
 end

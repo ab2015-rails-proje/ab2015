@@ -11,6 +11,37 @@
   %b Açıklama:
   = @lesson.description
 
+.pull-right
+  %div
+    = link_to 'Yeni Ogretmen Ekle', '#', class: 'btn btn-success btn-lg', "data-target" => "#myModal", "data-toggle" => "modal"
+  .clearfix
+
 = link_to 'Düzenle', edit_teacher_lesson_path(@lesson)
 
 = link_to 'Geri', teacher_lessons_path
+
+
+/ Modal
+#myModal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+          %span{"aria-hidden" => "true"} ×
+        %h4#myModalLabel.modal-title New Teacher
+      .modal-body
+        %table.table.table-bordered
+          %thead
+            %tr
+              %th Ders Adı
+              %th Etkinlik
+              %th{width: 30}
+          %tbody
+            - Teacher.where('id != ?',current_teacher.id).each do |teacher|
+              %tr
+                %td= teacher.name
+                %td= teacher.email
+                %td
+      .modal-footer
+        %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
+        %button.btn.btn-primary{:type => "button"} Save changes

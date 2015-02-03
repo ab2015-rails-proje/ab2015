@@ -45,6 +45,6 @@ class Admin::AnnouncementsController < Admin::BaseController
     end
 
     def announcement_params
-      params.require(:announcement).permit(:title, :content)
+      params.require(:announcement).permit(:title, :content, :file)
     end
 end

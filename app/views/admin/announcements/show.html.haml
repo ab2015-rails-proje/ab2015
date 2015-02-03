@@ -1,10 +1,14 @@
 %p#notice= notice
 
-%p
-  %h3
-    %b= @announcement.title
-%p
-  %p= @announcement.content.to_s.html_safe
+
+%h3
+  %b= @announcement.title
+
+= @announcement.content.to_s.html_safe
+
+=image_tag(@announcement.file.url)
+
+
 
 = link_to 'Düzelt', edit_admin_announcement_path(@announcement)
 
