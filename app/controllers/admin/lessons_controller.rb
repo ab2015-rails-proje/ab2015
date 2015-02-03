@@ -17,10 +17,12 @@ class Admin::LessonsController < Admin::BaseController
 
   def new
   	@lesson = Lesson.new
+    add_breadcrumb "Yeni Ders", :new_teacher_lesson_path
   	 respond_with(:admin, @lesson)
   end
 
   def edit
+    add_breadcrumb @lesson.name, edit_admin_lesson_path(@lesson)
   end
 
   def create

@@ -1,6 +1,6 @@
 %h1= @lesson.name 
 
-= @lesson.description.html_safe
+= @lesson.description.to_s.html_safe
 
 - if current_user.present? && current_user.lessons.map(&:id).include?(@lesson.id)
   %p Zaten bu derse kayıtlısınız

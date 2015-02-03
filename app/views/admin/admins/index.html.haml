@@ -1,6 +1,6 @@
 %p= current_admin.email
 
-Userlar
+Adminler
 
 .well
   = search_form_for [:admin, @search] do |f|
@@ -11,6 +11,7 @@ Userlar
     
     = f.submit 'Ara', class: 'btn btn-default'
 
+= link_to 'Yeni Admin Yarat', new_admin_admin_path, class: 'btn btn-default'
 
 = link_to 'Tümünü Blokla', block_all_admin_users_path, class: 'btn btn-danger', method: :post
 

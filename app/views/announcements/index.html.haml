@@ -2,7 +2,6 @@
   %thead
     %tr
       %th Başlık
-      %th İcerik
   %tbody
   - @announcements.each do |announcement|
     %tr
@@ -10,4 +9,3 @@
         =link_to announcement do
           = announcement.title
 
-      %td= announcement.content
