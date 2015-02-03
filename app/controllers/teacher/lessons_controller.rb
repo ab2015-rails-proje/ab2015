@@ -1,5 +1,5 @@
 class Teacher::LessonsController < Teacher::BaseController
-  before_action :set_lesson, only: [:show, :edit, :update, :destroy]
+  before_action :set_lesson, only: [:show, :edit, :update, :destroy, :add_teacher]
   add_breadcrumb "Dersler", :teacher_lessons_path
   respond_to :html
 
@@ -10,6 +10,11 @@ class Teacher::LessonsController < Teacher::BaseController
 
   def show
     add_breadcrumb @lesson.name, teacher_lesson_path(@lesson)
+    respond_with(:teacher, @lesson)
+  end
+
+  def add_teacher
+    @teacher= Teacher.where('id!=?',current_teacher)
     respond_with(:teacher, @lesson)
   end
 
