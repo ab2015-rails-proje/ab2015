@@ -4,5 +4,5 @@ class Lesson < ActiveRecord::Base
   has_many :memberships
   has_many :users, through: :memberships
 
-  validates_presence_of :name, :description
+  validates_presence_of :name, :description,:event
 end

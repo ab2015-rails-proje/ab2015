@@ -4,7 +4,7 @@
   %h3
     %b= @announcement.title
 %p
-  %p= @announcement.content
+  %p= @announcement.content.to_s.html_safe
 
 = link_to 'Düzelt', edit_admin_announcement_path(@announcement)
 

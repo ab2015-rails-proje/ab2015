@@ -2,6 +2,7 @@ class Admin::AnnouncementsController < Admin::BaseController
   before_action :set_announcement, only: [:show, :edit, :update, :destroy]
 
   respond_to :html
+  add_breadcrumb "Duyurular", :admin_announcements_path
 
   def index
     @announcements = Announcement.all.order('id desc')
@@ -9,12 +10,14 @@ class Admin::AnnouncementsController < Admin::BaseController
   end
 
   def show
+    add_breadcrumb @announcement.title, admin_announcement_path(@announcement)
     respond_with(:admin,@announcement)
   end
-
   def new
     @announcement = Announcement.new
+    add_breadcrumb "Yeni Duyuru", :new_admin_announcement_path
     respond_with(:admin,@announcement)
+
   end
 
   def edit
