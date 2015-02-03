@@ -81,7 +81,7 @@ Rails.application.routes.draw do
       post :unblock, on: :member
       post :block_all, on: :collection
     end
-    resources :admins, except: [:create, :new] do
+    resources :admins do
       post :block, on: :member
       post :unblock, on: :member
       post :block_all, on: :collection
