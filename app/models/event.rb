@@ -14,5 +14,15 @@
 class Event < ActiveRecord::Base
 	validates_presence_of :name
   belongs_to :admin
-  has_many :lesson
+  has_many :lessons
+
+  scope :only_this_years, -> {where('start_date > ?', Date.today.beginning_of_year)}
+
+  has_many :memberships, through: :lessons
+  has_many :users, through: :memberships
+
+
+  def self.x
+    self.where('start_date > ?', Date.today.beginning_of_year)
+  end
 end
