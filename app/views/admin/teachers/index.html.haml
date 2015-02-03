@@ -1,14 +1,14 @@
 .well
   = search_form_for [:admin, @search] do |f|
     %div
-      = f.label :name,'Isim'
-      = f.search_field :name_cont
+      = f.label :name,'Isim' 
+      = f.search_field :name_cont, class: "form-control"
 
     %div
       = f.label :email , 'Mail Adresi'
-      = f.search_field :email_cont
+      = f.search_field :email_cont, class: "form-control"
     
-    = f.submit 'Ara', class: 'btn btn-default'
+    = f.submit 'Ara', class: 'btn btn-primary'
 
 
 = link_to 'Tümünü Blokla', block_all_admin_teachers_path, class: 'btn btn-danger', method: :post
