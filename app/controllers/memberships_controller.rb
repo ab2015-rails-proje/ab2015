@@ -6,4 +6,5 @@ class MembershipsController < ApplicationController
     flash[:success] = "Eğitime kaydınız tamamlandı"
     redirect_to :back 
   end
+
 end

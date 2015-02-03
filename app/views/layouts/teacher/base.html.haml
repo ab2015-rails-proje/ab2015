@@ -26,11 +26,15 @@
           %a.navbar-brand{:href => "#"} Akademik Bilişim Yönetim Ekranı
         #navbar.navbar-collapse.collapse
           %ul.nav.navbar-nav
+            %li.active
+              %a{:href => "#"} Home
             %li
-              = link_to 'Derslerim', teacher_lessons_path
+              %a{:href => "#about"} About
+            %li
+              = link_to 'Duyurular',admin_announcements_path
 
     .container.theme-showcase{:role => "main"}
       / Main jumbotron for a primary marketing message or call to action
-      %ol.breadcrumb
+      .well
         = render_breadcrumbs separator: ' / '
       = yield

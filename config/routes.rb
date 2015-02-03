@@ -5,8 +5,9 @@ Rails.application.routes.draw do
 
 
   get 'lessons/show'
+  get 'memberships/index'
 
-  resource :memberships, only: [:create]
+  resource :memberships, only: [:create, :index]
 
   resources :announcements, only: [:index, :show]
   resources :events, only: [:index, :show]
@@ -45,7 +46,9 @@ Rails.application.routes.draw do
   end
 
   namespace :teacher do
-    resources :lessons
+    resources :lessons do
+      resources :users
+    end
     resources :dashboard, only: :index
     root 'dashboard#index'
   end
