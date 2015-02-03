@@ -1,14 +1,15 @@
 %h1 Ders Listesi
 
-%table.table
+%table.table.table-bordered
   %thead
     %tr
       %th Ders Adı
       %th Etkinlik
+      %th{width: 100}
 
       
   %tbody
     = render @lessons
 %br
 
-= link_to 'Yeni Ders', new_teacher_lesson_path
+= link_to 'Yeni Ders Ekle', new_teacher_lesson_path, class: 'btn btn-default btn-success'
