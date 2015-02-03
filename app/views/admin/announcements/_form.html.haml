@@ -1,0 +1,23 @@
+
+
+= form_for [:admin, @announcement] do |f|
+  - if @announcement.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@announcement.errors.count, "error")} prohibited this announcements from being saved:"
+      %ul
+        - @announcement.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :title
+    = f.text_field :title,class: 'form-control'
+  .field
+    = f.label :content
+    = f.text_area :content, class: 'wysihtml5', :rows => "17"
+
+  = f.label :file
+  =f.file_field :file
+
+  .actions
+    = f.submit 'Kaydet', class:'btn btn-default'
+

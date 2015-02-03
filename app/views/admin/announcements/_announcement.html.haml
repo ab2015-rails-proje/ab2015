@@ -1,0 +1,10 @@
+%tr
+  %td= announcement.title
+  %td= announcement.content.to_s.html_safe
+  %td
+    = link_to [:admin, announcement], class: 'btn btn-default btn-xs' do
+      %i.icon.glyphicon.glyphicon-eye-open
+    = link_to edit_admin_announcement_path(announcement), class: 'btn btn-default btn-xs' do
+      %i.icon.glyphicon.glyphicon-pencil
+    = link_to [:admin, announcement], :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-default btn-xs' do
+      %i.glyphicon.glyphicon-trash

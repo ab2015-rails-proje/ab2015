@@ -1,0 +1,14 @@
+%h1 Etkinlikler
+
+%table.table.table-bordered
+  %thead
+  %tr
+    %td Etkinlik
+    %td Başlangıç Tarihi
+    %td Bitiş Tarihi
+  %tbody
+    - @events.each do |event|
+      %tr
+        %td= link_to event.name, event
+        %td= event.start_date
+        %td= event.end_date

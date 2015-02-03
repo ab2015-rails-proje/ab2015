@@ -13,9 +13,17 @@
 
 # Ignore all logfiles and tempfiles.
 /log/*.log
+
 /tmp
-<<<<<<< HEAD
-/idea
-=======
-.idea/
->>>>>>> 9edf51428728058af7505b5133d4b91e8a8e4043
+/Gemfile
+/config/routes.rb
+/db/schema.rb
+/tmp/*
+
+
+.idea/*
+
+
+config/settings.local.yml
+config/settings/*.local.yml
+config/environments/*.local.yml

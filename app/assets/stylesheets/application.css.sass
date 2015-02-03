@@ -10,11 +10,18 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require bootstrap-wysihtml5
  * require tree .
  */
 
 @import "bootstrap-sprockets"
 @import "bootstrap"
+@import "announcements"
 
 body
   margin-top: 60px
+  font-family: 'helvetica neue'
+
+.wysihtml5
+  width: 100%
+

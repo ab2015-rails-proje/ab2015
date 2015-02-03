@@ -2,6 +2,7 @@
   %td= event.name
   %td= event.start_date
   %td= event.end_date
+  %td= event.admin.email
   %td
     = link_to [:admin, event], class: 'btn btn-default btn-xs' do
       %i.icon.glyphicon.glyphicon-eye-open

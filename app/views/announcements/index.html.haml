@@ -1,0 +1,11 @@
+%table.table
+  %thead
+    %tr
+      %th Başlık
+  %tbody
+  - @announcements.each do |announcement|
+    %tr
+      %td
+        =link_to announcement do
+          = announcement.title
+

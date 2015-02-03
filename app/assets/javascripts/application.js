@@ -15,5 +15,13 @@
 //= require turbolinks
 //= require jquery-ui/effect-highlight
 //= require bootstrap-sprockets
+//= require bootstrap-wysihtml5
 
 //= require_tree .
+
+
+$(document).ready(function(){
+    $('.wysihtml5').each(function(i, elem) {
+        $(elem).wysihtml5();
+    });
+})

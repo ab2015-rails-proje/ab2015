@@ -1,12 +1,12 @@
 source 'https://rubygems.org'
 
+ruby "2.1.3"
 gem 'haml'
 gem 'haml-rails'
+gem 'bootstrap-wysihtml5-rails','~> 0.3.3.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.9'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
@@ -51,3 +51,16 @@ gem 'ransack'
 gem 'jquery-ui-rails'
 gem "breadcrumbs_on_rails"
 gem 'katip'
+gem 'better_errors'
+gem 'binding_of_caller'
+gem "bullet", :group => "development"
+gem 'annotate', '~> 2.6.5'
+gem 'rails_config'
+gem 'paperclip'
+
+gem 'rails_12factor', group: :production
+gem 'pg', group: :production
+
+group :development, :test do
+  gem 'sqlite3'
+end

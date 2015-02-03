@@ -1,0 +1,20 @@
+= form_for [:teacher, @lesson] do |f|
+  - if @lesson.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@lesson.errors.count, "error")} prohibited this lesson from being saved:"
+      %ul
+        - @lesson.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :event
+    = f.select :event_id, Event.all.map{|e| [e.name, e.id]}
+  .field
+    = f.label :description
+    = f.text_area :description, class: 'wysihtml5'
+  
+  .actions
+    = f.submit 'Save'

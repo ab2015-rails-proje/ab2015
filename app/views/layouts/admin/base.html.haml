@@ -26,13 +26,19 @@
           %a.navbar-brand{:href => "#"} Akademik Bilişim Yönetim Ekranı
         #navbar.navbar-collapse.collapse
           %ul.nav.navbar-nav
-            %li.active
-              %a{:href => "#"} Home
             %li
-              %a{:href => "#about"} About
+              = link_to 'Yöneticiler', admin_admins_path
+            %li
+              = link_to 'Teachers', admin_teachers_path
+            %li
+              = link_to 'Duyurular',admin_announcements_path
+            %li
+              = link_to 'Etkinlikler', admin_events_path
 
     .container.theme-showcase{:role => "main"}
       / Main jumbotron for a primary marketing message or call to action
-      .well
-        = render_breadcrumbs separator: ' / '
+      - flash.each do |key, value|
+        = content_tag :div, value, class: "flash alert alert-#{key}"
+      %ol.breadcrumb
+        = render_breadcrumbs :tag => :li, :separator => " / "
       = yield

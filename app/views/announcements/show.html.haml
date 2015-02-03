@@ -1,0 +1,7 @@
+%p#notice= notice
+
+%h1
+  %b= @announcement.title
+%hr
+%p
+  %p= @announcement.content.to_s.html_safe

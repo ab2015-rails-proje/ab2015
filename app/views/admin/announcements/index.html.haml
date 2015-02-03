@@ -1,0 +1,15 @@
+%h1 Duyuru Listesi
+
+%table.table
+  %thead
+    %tr
+      %th Başlık
+      %th İçerik
+
+      
+  %tbody
+    = render @announcements
+
+    %br
+
+= link_to 'Yeni Duyuru Ekle', new_admin_announcement_path

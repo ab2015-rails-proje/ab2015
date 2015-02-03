@@ -1,0 +1,13 @@
+%h1= "#{@lesson.name} Dersine başvuran öğrenciler"
+%table.table
+  %thead
+    %tr
+      %th Eposta
+      %th Ad Soyad
+  %tbody
+  - @users.each do |user|
+    %tr
+      %td
+        = user.email
+      %td
+        = user.name

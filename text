@@ -1,0 +1,6 @@
+      invoke  active_record
+      remove    db/migrate/20150201122930_create_announcements.rb
+      remove    app/models/announcement.rb
+      invoke    test_unit
+      remove      test/models/announcement_test.rb
+      remove      test/fixtures/announcements.yml
