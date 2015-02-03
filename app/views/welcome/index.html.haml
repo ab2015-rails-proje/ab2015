@@ -12,7 +12,7 @@
       %td Başlangıç Tarihi
       %td Bitiş Tarihi
   %tbody
-    - @event.each do |event|
+    - @events.each do |event|
       %tr
         %td= link_to event.name, event
         %td= event.start_date
