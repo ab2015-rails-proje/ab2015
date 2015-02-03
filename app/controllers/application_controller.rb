@@ -7,8 +7,7 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
-
-  rescue_from Exception, :with => :server_error
+  #rescue_from Exception, :with => :server_error
 
   def server_error(exception)
     respond_to do |format|
@@ -17,9 +16,8 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  rescue_from ActiveRecord::RecordNotFound, :with => :page_not_found
-
-  rescue_from ActionController::RoutingError, :with => :page_not_found
+  #rescue_from ActiveRecord::RecordNotFound, :with => :page_not_found
+  #rescue_from ActionController::RoutingError, :with => :page_not_found
 
   def page_not_found
     respond_to do |format|
@@ -27,15 +25,13 @@ class ApplicationController < ActionController::Base
       format.all  { render nothing: true, status: 404 }
     end
 
-
   end
 
 
-
   protected
-	  def configure_permitted_parameters
-	    devise_parameter_sanitizer.for(:sign_up) << :name
-	  end
-
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.for(:sign_up) << :name
+  end
 
 end
+

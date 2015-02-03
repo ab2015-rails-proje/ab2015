@@ -1,7 +1,8 @@
 %tr
- %td= admin.email
- %td= block_status(admin.blocked)
- %td
-
-  = link_to 'Blokla', block_admin_admin_path(admin), class: "btn btn-danger btn-xs", method: :post
-  = link_to 'Aktif Et', unblock_admin_admin_path(admin), class: "btn btn-success btn-xs", method: :post
+  %td= admin.email
+  %td= block_status(admin.blocked)
+  %td
+  - if current_admin.is_super 
+    - unless admin.is_super
+      %td= link_to 'Blokla', block_admin_admin_path(admin), class: "btn btn-danger btn-xs #{admin.blocked ? 'disabled' : ''}", method: :post
+      %td= link_to 'Aktif Et', unblock_admin_admin_path(admin), class: "btn btn-success btn-xs #{admin.blocked ? '' : 'disabled'}", method: :post

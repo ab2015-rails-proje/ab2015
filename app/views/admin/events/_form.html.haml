@@ -6,14 +6,14 @@
         - event.errors.full_messages.each do |msg|
           %li= msg
 
-  .field
+  .field.form-group
     = f.label :name
     = f.text_field :name, class: 'form-control', placeholder: 'Bu alan'
-  .field
+  .field.form-group
     = f.label :start_date
-    = f.date_select :start_date
-  .field
+    = f.date_select :start_date, class: 'form-control'
+  .field.form-group
     = f.label :end_date
-    = f.date_select :end_date
+    = f.date_select :end_date, class: 'form-control'
   .actions
-    = f.submit 'Save'
+    = f.submit 'Kaydet', class: 'btn btn-default'
