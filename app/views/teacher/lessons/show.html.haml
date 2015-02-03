@@ -30,9 +30,18 @@
           %span{"aria-hidden" => "true"} ×
         %h4#myModalLabel.modal-title New Teacher
       .modal-body
-        - Teacher.where('id != ?',current_teacher.id).each do |teacher|
-         =teacher.email
-
+        %table.table.table-bordered
+          %thead
+            %tr
+              %th Ders Adı
+              %th Etkinlik
+              %th{width: 30}
+          %tbody
+            - Teacher.where('id != ?',current_teacher.id).each do |teacher|
+              %tr
+                %td= teacher.name
+                %td= teacher.email
+                %td
       .modal-footer
         %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
         %button.btn.btn-primary{:type => "button"} Save changes

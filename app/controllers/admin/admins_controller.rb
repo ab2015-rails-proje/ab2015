@@ -28,35 +28,32 @@ class Admin::AdminsController < Admin::BaseController
   end
 
   def block_all
-    Admin.all.each {|a| a.update(blocked: true) unless current_admin == @admin }
+    Admin.update_all(blocked: true)
     flash[:success] = 'İşlem Başarılı'
     redirect_to :back
   end
 
 	def block
     @admin = Admin.find(params[:id])
-    unless current_admin == @admin
-      @admin.blocked = true
-      if @admin.save
-        flash[:success] = 'Başarılı bir şekilde bloklandı.'
-      else
-        flash[:danger] = 'Bloklanamadı!'
-      end
-      redirect_to :back
+    @admin.blocked = true
+    if @admin.save
+      flash[:success] = 'Başarılı bir şekilde bloklandı.'
+    else
+      flash[:danger] = 'Bloklanamadı!'
     end
+    redirect_to :back
   end
 
 	def unblock
     @admin = Admin.find(params[:id])
-    unless current_admin == @admin
-      @admin.blocked = false
-      if @admin.save
-        flash[:success] = 'Başarılı bir şekilde aktif edildi.'
-      else
-        flash[:danger] = 'Aktif edilemedi.'
-      end
-     redirect_to :back  
+
+    @admin.blocked = false
+    if @admin.save
+      flash[:success] = 'Başarılı bir şekilde aktif edildi.'
+    else
+      flash[:danger] = 'Aktif edilemedi.'
     end
+    redirect_to :back  
   end
 
 private
