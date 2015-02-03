@@ -32,11 +32,13 @@
               = link_to 'Teachers', admin_teachers_path
             %li
               = link_to 'Duyurular',admin_announcements_path
+            %li
+              = link_to 'Etkinlikler', admin_events_path
 
     .container.theme-showcase{:role => "main"}
       / Main jumbotron for a primary marketing message or call to action
       - flash.each do |key, value|
         = content_tag :div, value, class: "flash alert alert-#{key}"
       %ol.breadcrumb
-        render_breadcrumbs :tag => :li, :separator => " / "
+        = render_breadcrumbs :tag => :li, :separator => " / "
       = yield
