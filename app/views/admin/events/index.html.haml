@@ -6,14 +6,6 @@
       = f.label :name
       = f.search_field :name_cont
 
-    %div
-      = f.label :start_date
-      = f.date_field :start_date_gt
-
-    %div
-      = f.label :start_date
-      = f.date_field :end_date_lt
-
     = f.submit 'Ara', class: 'btn btn-default'
 
 .pull-right
@@ -45,9 +37,8 @@
       .modal-header
         %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
           %span{"aria-hidden" => "true"} ×
-        %h4#myModalLabel.modal-title Modal title
+        %h4#myModalLabel.modal-title Yeni Etkinlik
       .modal-body
         = render partial: 'form', locals: {event: Event.new}
       .modal-footer
-        %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
-        %button.btn.btn-primary{:type => "button"} Save changes
+        %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Kapat

@@ -13,10 +13,15 @@
 
 # Ignore all logfiles and tempfiles.
 /log/*.log
+
+/tmp
+/Gemfile
+/config/routes.rb
+/db/schema.rb
 /tmp/*
 
 
-.idea/
+.idea/*
 
 
 config/settings.local.yml

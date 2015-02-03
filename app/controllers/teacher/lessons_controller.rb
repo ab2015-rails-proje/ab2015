@@ -1,10 +1,10 @@
 class Teacher::LessonsController < Teacher::BaseController
-  before_action :set_lesson, only: [:show, :edit, :update, :destroy]
+  before_action :set_lesson, only: [:show, :edit, :update, :destroy, :add_teacher]
   add_breadcrumb "Dersler", :teacher_lessons_path
   respond_to :html
 
   def index
-    @lessons = Lesson.all
+    @lessons = current_teacher.lessons
     respond_with(:teacher, @lessons)
   end
 
@@ -13,10 +13,15 @@ class Teacher::LessonsController < Teacher::BaseController
     respond_with(:teacher, @lesson)
   end
 
+  def add_teacher
+    @teacher= Teacher.where('id!=?',current_teacher)
+    respond_with(:teacher, @lesson)
+  end
+
   def new
     @lesson = Lesson.new
-    respond_with(:teacher, @lesson)
     add_breadcrumb "Yeni Ders", :new_teacher_lesson_path
+    respond_with(:teacher, @lesson)
   end
 
   def edit
@@ -41,7 +46,7 @@ class Teacher::LessonsController < Teacher::BaseController
 
   private
     def set_lesson
-      @lesson = Lesson.find(params[:id])
+      @lesson = current_teacher.lessons.find(params[:id])
     end
 
     def lesson_params
