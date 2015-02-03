@@ -1,14 +1,14 @@
 .well
   = search_form_for [:admin, @search] do |f|
     %div
-      = f.label :name,'Isim' 
-      = f.search_field :name_cont, class: "form-control"
+      = f.label :name
+      = f.search_field :name_cont
 
     %div
-      = f.label :email , 'Mail Adresi'
-      = f.search_field :email_cont, class: "form-control"
+      = f.label :email
+      = f.search_field :email_cont
     
-    = f.submit 'Ara', class: 'btn btn-primary'
+    = f.submit 'Ara', class: 'btn btn-default'
 
 
 = link_to 'Tümünü Blokla', block_all_admin_teachers_path, class: 'btn btn-danger', method: :post
@@ -16,9 +16,9 @@
 %table.table
   %thead
     %tr
-      %th= sort_link(@search,:name, 'Isim')
-      %th= sort_link(@search,:email, 'Mail Adresi')
-      %th= sort_link(@search,:blocked, "Durum")
+      %th= sort_link(@search,:name)
+      %th= sort_link(@search,:email)
+      %th= sort_link(@search,:blocked, "blocked status")
       %th
   %tbody
     = render @teacher
