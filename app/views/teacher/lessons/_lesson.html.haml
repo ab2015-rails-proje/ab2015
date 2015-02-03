@@ -1,0 +1,10 @@
+%tr
+  %td=  lesson.name
+  %td=  lesson.event.name
+  %td
+    = link_to [:teacher,  lesson], class: 'btn btn-default btn-xs' do
+      %i.icon.glyphicon.glyphicon-eye-open
+    = link_to edit_teacher_lesson_path(lesson), class: 'btn btn-default btn-xs' do
+      %i.icon.glyphicon.glyphicon-pencil
+    = link_to [:teacher,  lesson], :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-default btn-xs' do
+      %i.glyphicon.glyphicon-trash

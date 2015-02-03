@@ -1,6 +1,19 @@
-%h1 Hoşgeldiniz.
+%h1 Akademik Bilişime Hoşgeldiniz!
 
-= link_to 'Yönetici Girişi', new_admin_session_path, class: 'btn btn-primary btn-lg'
+%h3 Üniversitelerde bilgi teknolojileri konusunda ilgili grupları biraraya getirerek, bilgi teknolojileri altyapısı, kullanımı, eğitimi ve üretimini tüm boyutlarıyla tanıtmak, tartışmak, tecrübeleri paylaşmak, ve ortak politika oluşturmak amaçlarıyla ulusal boyutta Akademik Bilişim konferansları dizisi düzenlenmiştir. Konferansta davetli bildiriler, eğitim seminerleri ve yapılandırılmış çalışma grubu/açık oturum türü etkinlikler yapılacaktır. Konferans ilgili herkese açıktır; ve bu konularda katkı bekliyoruz.
 
-= Settings.facebook.username
-= Settings.facebook.password
+
+%h2 Etkinlikler
+
+%table.table.table-bordered
+  %thead
+    %tr
+      %td Etkinlik
+      %td Başlangç Tarihi
+      %td Bitiş Tarihi
+  %tbody
+    - @events.each do |event|
+      %tr
+        %td= link_to event.name, event
+        %td= event.start_date
+        %td= event.end_date

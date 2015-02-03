@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
 
 
-  resources :announcements, only: [:index, :show]
+  get 'lessons/show'
 
-  resources :lessons
+  resource :memberships, only: [:create]
+
+  resources :announcements, only: [:index, :show]
+  resources :events, only: [:index, :show]
+  resources :lessons, only: [:show]
   devise_for :users
   devise_for :teachers
   devise_for :admins
@@ -66,6 +70,7 @@ Rails.application.routes.draw do
     root 'dashboard#index'
     resources :announcements
     resources :events
+    resources :lessons
     resources :teachers, except: [:create, :new] do
       post :block, on: :member
       post :unblock, on: :member
@@ -85,6 +90,7 @@ Rails.application.routes.draw do
 
   namespace :teacher do
     resources :lessons
-    root 'lessons#index'
+    resources :dashboard, only: :index
+    root 'dashboard#index'
   end
 end

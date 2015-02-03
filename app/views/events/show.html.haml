@@ -1,0 +1,22 @@
+%p
+  %b Adı:
+  = @event.name
+%p
+  %b Başlangıç Tarihi:
+  = @event.start_date
+%p
+  %b Bitiş Tarihi:
+  = @event.end_date
+
+%h2 İlgili Dersler
+
+%table.table.table-bordered
+  %thead
+    %tr
+      %th Adı
+      %th Öğretmenler
+  %tbody
+  - @lessons.each do |lesson|
+    %tr
+      %td= link_to lesson.name, lesson
+      %td= lesson.teachers.map(&:name).join(',')
