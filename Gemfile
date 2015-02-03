@@ -57,3 +57,4 @@ gem 'binding_of_caller'
 gem "bullet", :group => "development"
 gem 'annotate', '~> 2.6.5'
 gem 'rails_config'
+gem 'paperclip'

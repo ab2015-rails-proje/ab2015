@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150202131905) do
+ActiveRecord::Schema.define(version: 20150203123422) do
 
   create_table "admins", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -37,6 +37,10 @@ ActiveRecord::Schema.define(version: 20150202131905) do
     t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
   end
 
   create_table "events", force: true do |t|
@@ -56,10 +60,6 @@ ActiveRecord::Schema.define(version: 20150202131905) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "description"
-    t.string   "file_file_name"
-    t.string   "file_content_type"
-    t.integer  "file_file_size"
-    t.datetime "file_updated_at"
   end
 
   add_index "lessons", ["event_id"], name: "index_lessons_on_event_id"

@@ -15,6 +15,9 @@
     = f.label :content
     = f.text_area :content, class: 'wysihtml5', :rows => "17"
 
+  = f.label :file
+  =f.file_field :file
+
   .actions
     = f.submit 'Kaydet', class:'btn btn-default'
 
