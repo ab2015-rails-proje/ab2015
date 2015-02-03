@@ -36,5 +36,5 @@
       - flash.each do |key, value|
         = content_tag :div, value, class: "flash alert alert-#{key}"
       %ol.breadcrumb
-        = render_breadcrumbs :tag => :li, :separator => " / "
+        = render_breadcrumbs :separator => " / "
       = yield
