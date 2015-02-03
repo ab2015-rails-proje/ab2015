@@ -1,12 +1,16 @@
 %p#notice= notice
 
 %p
-  %b Name:
+  %b Ders Adı:
   = @lesson.name
-%p
-  %b Event:
-  = @lesson.event.name
 
-= link_to 'Edit', edit_teacher_lesson_path(@lesson)
-\|
-= link_to 'Back', teacher_lessons_path
+%p
+  %b Etkinlik:
+  = @lesson.event.name
+%p
+  %b Açıklama:
+  = @lesson.description
+
+= link_to 'Düzenle', edit_teacher_lesson_path(@lesson)
+
+= link_to 'Geri', teacher_lessons_path

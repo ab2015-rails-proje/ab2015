@@ -1,8 +1,7 @@
 %p#notice= notice
 
-
-%h3
-  %b= @announcement.title
-
-= @announcement.content.html_safe
-
+%p
+  %h3
+    %b= @announcement.title
+%p
+  %p= @announcement.content.html_safe
